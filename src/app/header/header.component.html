@@ -1,0 +1,61 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item brand">
+    <a [routerLink]="['/home']"
+       class="nav-link"
+       routerLinkActive="active">
+    <span class="navbar-brand h1">
+      <i class="bi bi-egg-fried"></i> Food Delivery
+    </span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a [routerLink]="['/menu']"
+       class="nav-link"
+       routerLinkActive="active">
+      <i class="bi bi-book-half"></i> Menu
+    </a>
+  </li>
+  <li
+    class="nav-item"
+    *ngIf="isAuth">
+    <a [routerLink]="['/profile']"
+       class="nav-link"
+       routerLinkActive="active">
+      <i class="bi bi-person-circle"></i> Profile
+    </a>
+  </li>
+  <li
+    class="nav-item"
+    *ngIf="!isAuth">
+    <a [routerLink]="['/login']"
+       class="nav-link"
+       routerLinkActive="active">
+      <i class="bi bi-door-open"></i> Login
+    </a>
+  </li>
+  <li
+    class="nav-item"
+    *ngIf="!isAuth">
+    <a [routerLink]="['/signup']"
+       class="nav-link"
+       routerLinkActive="active">
+      <i class="bi bi-person-plus"></i> Signup
+    </a>
+  </li>
+  <li
+    class="nav-item"
+    *ngIf="isAuth">
+    <a class="nav-link"
+       [routerLink]="['/logout']">
+      <i class="bi bi-door-closed"></i> Logout
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
+      [routerLink]="['/cart']"
+      class="nav-link"
+      routerLinkActive="active">
+      <i class="bi bi-cart2"></i> Cart
+    </a>
+  </li>
+</ul>

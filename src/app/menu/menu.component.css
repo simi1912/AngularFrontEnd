@@ -1,0 +1,45 @@
+.row {
+  padding: 15px;
+}
+
+cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: inline-block;
+  margin: 15px;
+}
+
+.notFound {
+  text-align: center;
+  font-size: 22px;
+  padding: 25vh 0;
+}
+
+.filters {
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
+.filter {
+  padding: 15px;
+}
+
+.filterTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.filterForm {
+  padding: 10px;
+}
+
+.inputLabel {
+  text-transform: capitalize;
+  margin-left: 10px;
+}
+
+

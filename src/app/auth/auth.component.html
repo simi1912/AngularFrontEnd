@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-6 offset-3">
+    <form [formGroup]="authForm" (ngSubmit)="onLoginSubmit()">
+      <span *ngIf="authError">{{authError}}</span>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          formControlName="email"
+          id="email"
+          type="email"
+          class="form-control">
+        <span *ngIf="!authForm.get('email').valid &&
+            authForm.get('email').touched">Not a valid email.<br></span>
+
+        <label for="password">Password</label>
+        <input
+          formControlName="password"
+          id="password"
+          type="password"
+          class="form-control">
+        <span *ngIf="!authForm.get('password').valid &&
+              authForm.get('password').touched">Not a valid password<br></span>
+        <button
+          class="btn btn-light"
+          type="submit" [disabled]="authForm.invalid">Login!</button>
+      </div>
+    </form>
+  </div>
+</div>

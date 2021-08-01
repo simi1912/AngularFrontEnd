@@ -1,0 +1,51 @@
+ul.list-group {
+  padding: 50px;
+}
+
+li.list-group-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.name:hover {
+   color: gray;
+ }
+
+span.totalPrice{
+  text-align: right;
+  padding: 10px;
+  font-size: 30px;
+}
+
+p.cartEmpty{
+  text-align: center;
+  font-size: 30px;
+  margin: 100px;
+}
+
+input.quantityInput {
+  text-align: center;
+  font-size: 17px;
+  margin: 0 5px;
+  padding: 0;
+}
+
+.totalPrice {
+  text-align: right;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+}
+
+.placeOrder {
+  float: right;
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+}

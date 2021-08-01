@@ -1,0 +1,30 @@
+ul.nav {
+  margin-top: 15px;
+  font-family: "Berlin Sans FB";
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 50px;
+  font-weight: 400;
+}
+
+a.nav-link {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+@media (max-width: 1200px) {
+  li.brand {
+    display: block;
+    min-width: 100%;
+    text-align: center;
+  }
+
+  li.brand a.active {
+    border: 0;
+  }
+}
+

@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="row">
+    <div class="col-md-12 col-lg-6"><!--Search input-->
+      <form (submit)="onSearch($event, searchQuery.value)">
+        <div class="input-group">
+          <div class="col-sm-8">
+            <input
+              #searchQuery
+              class="form-control"
+              type="text"/>
+          </div>
+          <div class="col-sm-4">
+            <button
+              class="btn btn-lg"
+              type="submit">
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 filters">
+      <div class="filter">
+        <p class="filterTitle">Category</p>
+        <form class="filterForm">
+          <div
+            *ngFor="let category of categories"
+            class="category">
+            <input
+              class="inputCheckbox"
+              #categoryCheckbox
+              (change)="addCategoryFilter(category, categoryCheckbox.checked)"
+              type="checkbox"
+              value="{{category.name}}"/>
+            <label class="inputLabel">{{category.name}}</label>
+          </div>
+        </form>
+      </div>
+      <hr>
+    </div>
+
+    <div class="col-sm-10 cards">
+      <div
+        *ngIf="menuItems.length == 0"
+        class="row">
+        <div
+          class="col-12 notFound">
+          <p>Nothing found...</p>
+          <p>Try simple word, like <em>soup</em>.</p>
+        </div>
+      </div>
+      <div
+        *ngFor="let menuItem of menuItems"
+        class="card col-sm-12 col-md-4 col-lg-3">
+        <a [routerLink]="['/menu', menuItem.id]">
+          <img
+            class="card-img-top "
+            src="{{menuItem.image}}" alt="{{menuItem.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{menuItem.name}}</h5>
+            <p class="card-text">{{menuItem.description}}</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Price: {{menuItem.price}} $
+              </li>
+            </ul>
+          </div>
+        </a>
+        <div class="card-body">
+          Category:
+          <a [routerLink]="['/menu']"
+             [queryParams]="{category: menuItem.category.name}">
+            {{menuItem.category.name | titlecase}}
+          </a>
+        </div>
+        <button
+          (click)="addToCart(menuItem)"
+          class="btn btn-primary">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

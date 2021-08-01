@@ -1,0 +1,53 @@
+<p class="cartEmpty"
+  *ngIf="cart.cartItems.length == 0">
+  CartModel is empty. Are you not hungry?
+  <i class="bi bi-emoji-frown"></i>
+</p>
+<ul class="list-group">
+  <li
+    *ngFor="let cartItem of cart.cartItems"
+    class="list-group-item">
+    <div>
+      <input
+        value="{{cartItem.menuItem.id}}"
+        type="checkbox"
+        class="form-check-input me-1">
+      <a
+        class="name"
+        [routerLink]="['/menu', cartItem.menuItem.id]">
+        {{cartItem.menuItem.name}}</a>
+    </div>
+    <span>
+      quantity:
+      <button
+        class="btn btn-outline-danger"
+        (click)="quantityChange(cartItem.menuItem, cartItem.quantity-1)">
+        <i class="bi bi-dash-circle"></i>
+      </button>
+      <input
+        #quantityInput
+        (change)="quantityChange(cartItem.menuItem, +quantityInput.value)"
+        class="quantityInput"
+        value="{{cartItem.quantity}}"
+        type="number"/>
+      <button
+        class="btn btn-outline-success"
+        (click)="quantityChange(cartItem.menuItem, +cartItem.quantity+1)">
+        <i class="bi bi-plus-circle"></i>
+      </button>
+    </span>
+    <span>price: {{cartItem.menuItem.price * cartItem.quantity | number:'1.2-2' }} $</span>
+  </li>
+  <div *ngIf="cart.cartItems.length > 0">
+    <p
+      class="totalPrice">
+      Total price: {{cartPrice | number:'1.2-2' }} $
+    </p>
+    <button
+      (click)="cartAccepted()"
+      type="button"
+      class="btn btn-primary placeOrder">
+      Place OrderModel
+    </button>
+  </div>
+</ul>

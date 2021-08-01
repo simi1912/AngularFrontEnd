@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-8">
+    <img
+      class="img-thumbnail"
+      src="{{menuItem.image}}">
+  </div>
+  <div class="col-sm-4 menu-item-info">
+    <div class="details">
+       Name:
+      <p>{{menuItem.name}}</p>
+      Description:
+      <p>{{menuItem.description}}</p>
+
+      Price:
+      <p>{{menuItem.price}}</p>
+
+      Category:
+      <a [routerLink]="['/menu']"
+         [queryParams]="{category: menuItem.category.name}">
+        {{menuItem.category.name | titlecase}}
+      </a>
+    </div>
+    <button
+      (click)="addToCart(menuItem)"
+      class="btn btn-primary">
+      Add to CartModel
+    </button>
+  </div>
+</div>

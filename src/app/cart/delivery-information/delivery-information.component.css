@@ -1,0 +1,42 @@
+.cartOverview {
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 30px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.cartItem {
+  display: flex;
+  border: 1px solid grey;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+a{
+  text-transform: none;
+  color: black;
+  padding: 0 15px;
+  font-size: 20px;
+}
+
+.quantity {
+  padding: 0 15px;
+  font-size: 20px;
+}
+
+.price{
+  padding: 0 15px;
+  font-size: 20px;
+}
+.totalPrice {
+  display: block;
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  float: bottom;
+}

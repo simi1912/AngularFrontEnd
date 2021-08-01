@@ -1,0 +1,32 @@
+.row {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+ height: 600px;
+}
+
+.menu-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 300px;
+}
+
+.btn {
+  width: inherit;
+}
+
+@media screen and (max-width: 1500px){
+  .menu-item-info {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .btn {
+    width: inherit;
+  }
+}

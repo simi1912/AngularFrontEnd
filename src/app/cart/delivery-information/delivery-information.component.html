@@ -1,0 +1,181 @@
+<div class="container">
+<!--  Order Overview-->
+  <div class="row">
+    <div class="col-sm-12 col-md-9">
+      <div class="cartOverview">
+        <h3>OrderModel overview:</h3>
+        <div class="cartItem"
+          *ngFor="let cartItem of cartItems; let i = index">
+          <a [routerLink]="['/menu', cartItem.menuItem.id]">
+            {{i+1}}. {{cartItem.menuItem.name}}
+          </a>
+          <span class="quantity">
+            {{cartItem.quantity}} x {{cartItem.menuItem.price}}
+          </span>
+          <span class="price">
+            {{cartItem.quantity * cartItem.menuItem.price}} $
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      <p
+        class="totalPrice">
+        Total price: {{cartPrice | number:'1.2-2' }} $
+      </p>
+    </div>
+  </div>
+
+<!--  Login-->
+  <div class="row"
+    *ngIf="!isLoggedIn">
+    <div class="col-sm-6">
+      <p>Do you want to order with your account? LOGIN!</p>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          formControlName="email"
+          id="email"
+          type="email"
+          class="form-control">
+        <span *ngIf="!authForm.get('email').valid &&
+            authForm.get('email').touched">Not a valid email.<br></span>
+
+        <label for="password">Password</label>
+        <input
+          formControlName="password"
+          id="password"
+          type="password"
+          class="form-control">
+        <span *ngIf="!authForm.get('password').valid &&
+              authForm.get('password').touched">Not a valid password<br></span>
+        <button
+          class="btn btn-light"
+          type="submit" [disabled]="authForm.invalid">Login!</button>
+      </div>
+    </div>
+  </div>
+
+<!--  Customer Info -->
+  <div class="row">
+    <form (submit)="orderSubmitted()">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="customerInfo ">
+            <div class="bordered">
+              <h3>Name:</h3>
+              <div class="row">
+
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="firstName" >First Name</label>
+                  <input class="form-control"
+                         type="text"
+                         id="firstName"
+                         value={{loggedInUser.firstName}}>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="lastName" >Last Name</label>
+                  <input class="form-control"
+                         type="text"
+                         id="lastName"
+                         value={{loggedInUser.lastName}}>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label class="form-label"
+                         for="otherDetails" >Other Details</label>
+                  <textarea class="form-control"
+                            rows="4"
+                            id="otherDetails">
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6">
+          <div class="customerInfo">
+
+            <div class="bordered">
+              <h3>Address:</h3>
+              <div class="row">
+
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="country" >Country:</label>
+                  <input class="form-control"
+                         type="text"
+                         id="country"
+                         value={{loggedInUser.address.country}}>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="county" >County:</label>
+                  <input class="form-control"
+                         type="text"
+                         id="county"
+                         value={{loggedInUser.address.county}}>
+                </div>
+
+              </div>
+              <div class="row">
+
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="city" >City:</label>
+                  <input class="form-control"
+                         type="text"
+                         id="city"
+                         value={{loggedInUser.address.city}}>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="zip" >Zip:</label>
+                  <input class="form-control"
+                         type="text"
+                         id="zip"
+                         value={{loggedInUser.address.zip}}>
+                </div>
+
+              </div>
+              <div class="row">
+
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="street" >Street:</label>
+                  <input class="form-control"
+                         type="text"
+                         id="street"
+                         value={{loggedInUser.address.street}}>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label"
+                         for="number" >Number:</label>
+                  <input class="form-control"
+                         type="text"
+                         id="number"
+                         value={{loggedInUser.address.number}}>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="d-grid gap-sm-0 gap-md-3 gap-lg-4
+                           col-sm-12 col-md-6 col-lg-3 mx-auto">
+          <button class="btn btn-success sendOrder"
+                  type="submit">
+            Submit Order
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

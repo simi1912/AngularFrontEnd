@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
+
+.container-fluid {
+  background-image: url("https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1900&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 200px;
+  height: 100vh;
+}
+
+.welcome {
+  font-family: "Shadows Into Light Two";
+  padding: 80px 180px;
+  background-color: rgba(163, 150, 133, 0.64);
+  color: white;
+  text-align: left;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+.input-group {
+  font-family: "Berlin Sans FB";
+  padding: 15px;
+}
+
+button, input{
+  font-size: 40px;
+  padding: 5px;
+}
+
+input{
+  background-color: rgba(255, 255, 255, 0.66);
+}
+
+input:focus{
+  background-color: rgba(255, 255, 255, 0.66);
+  border: 2px solid black;
+  box-shadow: none;
+}
+
+button {
+  color: white;
+}
+
+button:focus {
+  border: 0px;
+  box-shadow: none;
+}
+
+@media (max-width: 770px) {
+  .welcome {
+    padding: 20px 30px;
+  }
+
+  h1 {
+    font-size: 70px;
+  }
+}
+
+div.categories{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+div.category {
+  color: black;
+  font-size: 25px;
+  background-color: rgba(163, 150, 133, 0.75);
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.categoryName h5{
+  color: black;
+}
+
+.category:hover {
+  transform: rotate(3deg) scale(1.1);
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: 200ms ease-in-out;
+}
